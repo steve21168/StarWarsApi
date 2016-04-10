@@ -1,13 +1,16 @@
 require_relative '../config/environment'
+logistic = Logistic.new
 
 system 'clear'
-print_logo
+logistic.print_logo
 
 characters = StarWarsApi.get_characters do |character_hash|
   Character.new_from_api(character_hash)
 end
 
-run_user_interaction(characters)
+
+
+logistic.run_user_interaction(characters)
 
 # skin_color = StarWarsApi.get_characters do |character_hash|
 #   character_hash["skin_color"]
